@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
 deviation.py
 
@@ -13,6 +15,8 @@ This file can also be imported as a module and contains the following functions:
     * calculate_mean_deviation - Calculates the standard deviation of the mean value
     * plot_histogram - Plots a histogram of given data
 """
+
+__author__ = "Frederik Bußmann"
 
 import matplotlib.pyplot as plt
 
