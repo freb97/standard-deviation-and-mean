@@ -13,6 +13,8 @@ This file can also be imported as a module and contains the following functions:
     * calculate_mean_deviation - Calculates the standard deviation of the mean value
 """
 
+import matplotlib.pyplot as plt
+
 import numpy as np
 
 
@@ -84,6 +86,26 @@ def calculate_mean_deviation(deviation, measurements_count):
     return deviation / np.sqrt(measurements_count)
 
 
+def plot_histogram(measurements):
+
+    plt.figure(figsize=(12, 10), dpi=80)
+    plt.grid(axis='y', alpha=0.75)
+
+    plt.xlabel('Measured value')
+    plt.ylabel('Frequency')
+
+    plt.title('Distribution of the measurements')
+
+    data = measurements
+
+    n, bins, patches = plt.hist(data, bins=len(data) + 4, color='skyblue', alpha=0.7, rwidth=0.95)
+
+    max_frequency = n.max()
+    plt.ylim(ymax=np.ceil(max_frequency / 10) * 3 if max_frequency % 10 else max_frequency + 10)
+
+    plt.show()
+
+
 def main():
     """
     Main function.
@@ -93,7 +115,7 @@ def main():
 
     print("Mean and standard deviation of measurements\n")
 
-    measurements = [1.24, 1.20, 1.23, 1.17, 1.15, 1.26, 1.20, 1.23, 1.16, 1.17]
+    measurements = [1.24, 1.2, 1.23, 1.17, 1.15, 1.26, 1.2, 1.23, 1.16, 1.17]
     print("We have the following measurements: " + str(measurements) + "\n")
 
     mean = calculate_mean(measurements)
@@ -103,6 +125,8 @@ def main():
     print("Mean of all measurements: " + str(mean))
     print("Standard deviation of all measurements: " + str(deviation))
     print("Standard deviation of the mean of all measurements: " + str(mean_deviation))
+
+    plot_histogram(measurements)
 
 
 if __name__ == "__main__":
