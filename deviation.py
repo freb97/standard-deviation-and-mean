@@ -11,6 +11,7 @@ This file can also be imported as a module and contains the following functions:
     * calculate_mean - Calculates the mean value of a given array
     * calculate_deviation - Calculates the standard deviation of a given array
     * calculate_mean_deviation - Calculates the standard deviation of the mean value
+    * plot_histogram - Plots a histogram of given data
 """
 
 import matplotlib.pyplot as plt
@@ -87,6 +88,14 @@ def calculate_mean_deviation(deviation, measurements_count):
 
 
 def plot_histogram(measurements):
+    """
+    Plots a histogram of given data
+
+    Parameters
+    ----------
+    measurements : float[]
+        The measurement data to plot
+    """
 
     plt.figure(figsize=(12, 10), dpi=80)
     plt.grid(axis='y', alpha=0.75)
