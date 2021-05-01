@@ -1,4 +1,4 @@
-# Mean and standard deviation of measurements
+# Standard deviation and mean value of measurements
 
 In this repository we calculate the mean value and deviation of given measurements
 
