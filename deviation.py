@@ -114,7 +114,7 @@ def plot_histogram(measurements):
     n, bins, patches = plt.hist(data, bins=len(data) + 4, color='skyblue', alpha=0.7, rwidth=0.95)
 
     max_frequency = n.max()
-    plt.ylim(ymax=np.ceil(max_frequency / 10) * 3 if max_frequency % 10 else max_frequency + 10)
+    plt.ylim(ymax=np.ceil(max_frequency / 10) * 6 if max_frequency % 10 else max_frequency + 10)
 
     plt.show()
 
@@ -128,18 +128,24 @@ def main():
 
     print("Mean and standard deviation of measurements\n")
 
-    measurements = [1.24, 1.2, 1.23, 1.17, 1.15, 1.26, 1.2, 1.23, 1.16, 1.17]
+    measurements = [
+        405.6, 399.3, 393.1, 390.0, 384.0, 393.2, 388.4, 393.6, 391.4, 395.0, 398.1, 401.8, 389.1, 388.9, 384.6, 401.0,
+        414.0, 391.1, 399.2, 391.0, 392.9, 398.2, 395.3, 398.3, 380.3, 410.0, 390.1, 393.5, 393.3, 381.4, 384.1, 392.9,
+        394.9, 400.2, 413.0, 398.8, 401.7, 397.0, 392.4, 384.4, 398.7, 387.2, 403.4, 387.0, 390.1, 394.6, 398.8, 399.9,
+        394.5, 405.2
+    ]
+
     print("We have the following measurements: " + str(measurements) + "\n")
 
     mean = calculate_mean(measurements)
     deviation = calculate_deviation(measurements, mean)
     mean_deviation = calculate_mean_deviation(deviation, len(measurements))
 
+    plot_histogram(measurements)
+
     print("Mean of all measurements: " + str(mean))
     print("Standard deviation of all measurements: " + str(deviation))
     print("Standard deviation of the mean of all measurements: " + str(mean_deviation))
-
-    plot_histogram(measurements)
 
 
 if __name__ == "__main__":
